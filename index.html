@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Quiz</title>
+    <style>
+        body {
+            background-color: #ff4d6d;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ff758f;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: none;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #ff1e56;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .hidden {
+            display: none;
+        }
+        .final-page {
+            font-size: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="quiz">
+        <h2>Valentine's Special Quiz</h2>
+        <div class="question" id="q1">
+            <label>What is your name?</label><br>
+            <input type="text" id="name">
+        </div>
+        <div class="question hidden" id="q2">
+            <label>How old are you?</label><br>
+            <input type="number" id="age">
+        </div>
+        <div class="question hidden" id="q3">
+            <label>What is your favorite romantic movie?</label><br>
+            <input type="text" id="movie">
+        </div>
+        <div class="question hidden" id="q4">
+            <label>What is your dream date location?</label><br>
+            <input type="text" id="dateLocation">
+        </div>
+        <div class="question hidden" id="q5">
+            <label>What is your favorite thing about me?</label><br>
+            <input type="text" id="loveAtFirstSight">
+        </div>
+        <button onclick="nextQuestion()">Next</button>
+    </div>
+
+    <div class="container hidden" id="final">
+        <p class="final-page">WILL YOU BE MY VALENTINE? ❤️</p>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        function nextQuestion() {
+            let currentElement = document.getElementById(q${currentQuestion});
+            currentElement.classList.add('hidden');
+            currentQuestion++;
+            let nextElement = document.getElementById(q${currentQuestion});
+            if (nextElement) {
+                nextElement.classList.remove('hidden');
+            } else {
+                document.getElementById('quiz').classList.add('hidden');
+                document.getElementById('final').classList.remove('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
